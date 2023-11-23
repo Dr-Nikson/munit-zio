@@ -19,6 +19,13 @@ class ZAssertionsSpec extends ZSuite {
     assertEqualsZ(zio, 42)
   }
 
+  testZ("assertEqualsZ works with List (successful assertion)") {
+    val initial = List(1, 2, 3)
+    val zio = ZIO.attempt(initial).map(_.sum)
+
+    assertEqualsZ(zio, initial.sum)
+  }
+
   testZ("assertEqualsZ works (failed assertion)".fail) {
     val zio = ZIO.attempt(41).map(_ + 2)
     assertEqualsZ(zio, 42)

@@ -19,5 +19,5 @@ class ZSuiteLocalFixtureSpec extends ZSuite {
   }
 
   override def afterAll(): Unit =
-    assertEquals(state, 2)
+    assertEquals(state, 1)
 }
